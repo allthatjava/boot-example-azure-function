@@ -20,6 +20,16 @@ Enter the proper values in the following properties
 ```
 * Also, requires host.json file and local.settings.json file in /src/main/resources directory
 
+* One thing to note is it uses ANONYMOUS option, so it can be access without Access Key
+```java
+    @FunctionName("httpWithName")
+    public String httpWithNameMethod(
+            @HttpTrigger(name = "req", methods = { HttpMethod.GET, HttpMethod.POST }, 
+                    authLevel = AuthorizationLevel.ANONYMOUS
+            ) HttpRequestMessage<Optional<String>> request,
+            ExecutionContext context) {
+```
+
 ### To deploy to Azure
 first run the maven package command
 `mvn clean package`

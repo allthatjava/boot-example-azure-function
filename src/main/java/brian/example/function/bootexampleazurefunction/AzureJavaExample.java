@@ -20,8 +20,9 @@ public class AzureJavaExample {
 
     @FunctionName("httpWithName")
     public String httpWithNameMethod(
-            @HttpTrigger(name = "req", methods = { HttpMethod.GET,
-                    HttpMethod.POST }, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,
+            @HttpTrigger(name = "req", methods = { HttpMethod.GET, HttpMethod.POST },
+                    authLevel = AuthorizationLevel.ANONYMOUS
+            ) HttpRequestMessage<Optional<String>> request,
             ExecutionContext context) {
 
         String reqName = request.getQueryParameters().get("name");
